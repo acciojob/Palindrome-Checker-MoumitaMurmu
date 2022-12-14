@@ -5,14 +5,10 @@
   
  
 function palindrome(str){
- var removeChar = str.replace(/[^A-Z0-9]/ig, "").toLowerCase();
-  var checkPalindrome = removeChar.split('').reverse().join('');
-   if(removeChar === checkPalindrome){
-       return true;
-     }else{
-       return false;
-     }
-  }
-palindrome("racecar");
+  var remove = /[\W_]/g;
+  var lowRegStr = str.toLowerCase().replace(remove, '');
+  var reverseStr = lowRegStr.split('').reverse().join(''); 
+  return reverseStr === lowRegStr;
 }
+palindrome("racecar", "RaceCar","raceCAR");
 module.exports = palindrome
